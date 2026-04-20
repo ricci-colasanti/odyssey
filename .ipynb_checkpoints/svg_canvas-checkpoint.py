@@ -6,7 +6,7 @@ class SVGCanvas:
         self.html_s =""
 
     def clear(self):
-        self.html_s = f'<svg width="{self.width}" height="{self.height}" style="border:1px solid black">'
+        self.html_s = f'<svg width="{self.width}" height="{self.height}"style="border:1px solid black">'
 
     def addCircle(self,x_pos,y_pos,color):
         x_pos = x_pos/self.size

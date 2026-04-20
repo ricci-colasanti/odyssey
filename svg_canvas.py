@@ -26,7 +26,7 @@ class SVGCanvas:
         int_y = str(int(y_pos*self.height))
         int_width = str(int(width*self.width))
         int_height = str(int(height*self.height))
-        self.html_s +=f'<rect x="{int_x}" y="{int_y}" width="{int_width}" height="{int_height}" fill="{color"/>'
+        self.html_s +=f'<rect x="{int_x}" y="{int_y}" width="{int_width}" height="{int_height}" fill="{color}"/>'
 
     def getCanvas(self):
         self.html_s += "</svg>"
