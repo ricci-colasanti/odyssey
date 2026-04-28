@@ -1,3 +1,5 @@
+from IPython.display import HTML
+
 class SVGCanvas:
     def __init__(self,width,height,size):
         self.width = width
@@ -27,6 +29,19 @@ class SVGCanvas:
         int_width = str(int(width*self.width))
         int_height = str(int(height*self.height))
         self.html_s +=f'<rect x="{int_x}" y="{int_y}" width="{int_width}" height="{int_height}" fill="{color}"/>'
+
+
+    def addPolygon(self,vertices,color):
+        scaled_vertices = []
+        for x, y in vertices:
+            scaled_x = (x / self.size) * self.width
+            scaled_y = (y / self.size) * self.height  
+            scaled_vertices.append([scaled_x, scaled_y])
+
+        # Format points as "x1,y1 x2,y2 ..."
+        points_string = ' '.join([f"{x},{y}" for x, y in scaled_vertices])
+        self.html_s += f'<polygon points="{points_string}" fill="{color}" stroke="black" stroke-width="0.5"/>'
+    
 
     def getCanvas(self):
         self.html_s += "</svg>"
